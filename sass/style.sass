@@ -1,0 +1,160 @@
+$red: #f26667
+$yellow: #FFD647
+$dark-yellow: #FCC446
+$orange: #F1A065
+$light-grey: #F7F7F7
+$light-dark-grey: #E0E0E0
+$border-grey: #EDEDED
+$dark-grey: #454545
+$animation: .2s
+
+@font-face
+    font-family: 'Effra-Regular'
+    src: url('fonts/effra/Effra-Regular.eot?#iefix') format('embedded-opentype'),  url('fonts/effra/Effra-Regular.woff') format('woff'), url('fonts/effra/Effra-Regular.ttf')  format('truetype'), url('fonts/effra/Effra-Regular.svg#Effra-Regular') format('svg')
+    font-weight: normal
+    font-style: normal
+
+
+@font-face
+    font-family: 'Effra-Light'
+    src: url('fonts/effra/Effra-Light.eot?#iefix') format('embedded-opentype'),  url('fonts/effra/Effra-Light.woff') format('woff'), url('fonts/effra/Effra-Light.ttf')  format('truetype'), url('fonts/effra/Effra-Light.svg#Effra-Light') format('svg')
+    font-weight: normal
+    font-style: normal
+
+body
+    margin: 0px
+    display: flex
+
+html
+    font-family: 'Effra-Regular', sans-serif
+
+nav
+    width: 100px
+    position: fixed
+    height: 100%
+    overflow: hidden
+    border-right: 1px solid $border-grey
+    background: $light-grey
+
+nav>ul
+    margin: 0
+    padding: 0
+    text-align: center
+    list-style: none
+
+nav>ul>li
+    padding: 15px
+    height: 70px
+
+.logo>svg
+    width: 50px
+    padding-top: 7px
+    position: relative
+    z-index: 1
+
+.logo:after
+    width: 100px
+    height: 100px
+    margin-top: -15px
+    left: 0px
+    content: ''
+    border-radius: 50%
+    display: inline-block
+    position: absolute
+    transition: all $animation ease-in-out
+    transition-property: transform, border-radius
+    transform: scale(0)
+
+.logo:hover:after
+    transform: scale(1)
+    background: $red
+    border-radius: 0
+    content: ''
+    display: inline-block
+    position: absolute
+
+nav>ul>li:after
+    width: 100px
+    height: 100px
+    margin-top: -15px
+    left: 0px
+    content: ''
+    border-radius: 50%
+    display: inline-block
+    position: absolute
+    transition: all $animation ease-in-out
+    transition-property: transform, border-radius
+    transform: scale(0)
+
+nav>ul>li:hover:after
+    transform: scale(1)
+    background: #F1F1F1
+    border-radius: 0
+    content: ''
+    display: inline-block
+    position: absolute
+
+nav>ul>li:hover
+    cursor: pointer
+
+nav>ul>li>i
+    color: $dark-grey
+    padding-top: 20px
+    position: relative
+    z-index: 1
+    transition: padding-top $animation ease-in-out
+
+nav>ul>li>div
+    color: $light-grey
+    width: 100px
+    transition: color $animation ease-in-out
+    left: 0px
+    position: absolute
+    text-align: center
+    margin: 0px
+    padding: 0px
+
+nav>ul>li:hover>div
+    z-index: 1
+    color: $dark-grey
+
+nav>ul>li:hover>i
+    color: $red
+    padding-top: 10px
+    position: relative
+    z-index: 1
+
+.logo>svg>path
+    transition: $animation fill
+    fill: $light-dark-grey
+
+.logo:hover>svg>path
+    animation: color $animation
+    fill: $yellow
+
+@-webkit-keyframes color
+    0%
+        fill: $light-dark-grey
+    50%
+        fill: #FFF0BB
+    100%
+        fill: $yellow
+
+.container
+    width: 960px
+    display: block
+    padding: 0px 60px
+    padding-left: 160px
+    flex: 1
+
+.post
+    margin: 60px 0px
+    height: 400px
+    border-radius: 5px
+    padding: 30px
+    border: 1px solid $border-grey
+    color: $dark-grey
+
+.post-title
+    padding: 0px 15px
+    font-size: 36px
