@@ -3,7 +3,7 @@ $yellow: #FFD647
 $dark-yellow: #FCC446
 $orange: #F1A065
 $light-grey: #F7F7F7
-$light-dark-grey: #E0E0E0
+$light-dark-grey: #CCCCCC
 $border-grey: #EDEDED
 $dark-grey: #454545
 $animation: .2s
@@ -67,13 +67,13 @@ nav>ul>li
 
 .logo:hover:after
     transform: scale(1)
-    background: $red
+    background: $red !important
     border-radius: 0
     content: ''
     display: inline-block
     position: absolute
 
-nav>ul>li:after
+nav>ul>li:not(:last-child):after
     width: 100px
     height: 100px
     margin-top: -15px
@@ -86,7 +86,7 @@ nav>ul>li:after
     transition-property: transform, border-radius
     transform: scale(0)
 
-nav>ul>li:hover:after
+nav>ul>li:not(:last-child):hover:after
     transform: scale(1)
     background: #F1F1F1
     border-radius: 0
@@ -97,14 +97,14 @@ nav>ul>li:hover:after
 nav>ul>li:hover
     cursor: pointer
 
-nav>ul>li>i
-    color: $dark-grey
+nav>ul>li:not(:last-child)>i
+    color: $light-dark-grey
     padding-top: 20px
     position: relative
     z-index: 1
     transition: padding-top $animation ease-in-out
 
-nav>ul>li>div
+nav>ul>li:not(:last-child)>div
     color: $light-grey
     width: 100px
     transition: color $animation ease-in-out
@@ -114,15 +114,25 @@ nav>ul>li>div
     margin: 0px
     padding: 0px
 
-nav>ul>li:hover>div
+nav>ul>li:not(:last-child):hover>div
     z-index: 1
     color: $dark-grey
 
-nav>ul>li:hover>i
-    color: $red
+nav>ul>li:not(:last-child):hover>i
+    color: $dark-grey
     padding-top: 10px
     position: relative
     z-index: 1
+
+nav>ul>li:last-child
+    position: absolute
+    bottom: 0px
+    height: auto
+    color: $light-dark-grey
+    font-size: 12px
+
+nav>ul>li:last-child>i
+    font-size: 10px
 
 .logo>svg>path
     transition: $animation fill
@@ -149,12 +159,94 @@ nav>ul>li:hover>i
 
 .post
     margin: 60px 0px
-    height: 400px
     border-radius: 5px
-    padding: 30px
+    overflow: hidden
     border: 1px solid $border-grey
     color: $dark-grey
 
 .post-title
-    padding: 0px 15px
+    padding: 0px 30px
     font-size: 36px
+    padding-top: 80px
+    padding-bottom: 20px
+    color: white
+    background-size: cover
+
+.post-title>img
+    float: right
+    opacity: 0.75
+    width: 40px
+    margin-top: -45px;
+    padding: 5px
+    display: inline-block
+    border-radius: 50%
+    transition: all $animation ease-in-out
+
+.post-title>img:hover
+    cursor: pointer
+    float: right
+    background: rgba(256, 256, 256, 0.1)
+    opacity: 1
+    width: 40px
+    display: inline-block
+
+.post-title>p
+    margin: 0px
+    font-size: 16px
+    letter-spacing: 0.5px
+    padding: 10px 0px
+    text-transform: uppercase
+
+
+.post-content
+    padding: 0px 15px
+
+.post-action
+    border-top: 1px solid $border-grey
+    padding: 25px 15px
+
+.post-content>p
+    margin: 5px
+    font-family: 'Open Sans', sans-serif
+    padding: 20px 10px
+    font-size: 16px
+    letter-spacing: .25px
+    line-height: 40px
+    color: $dark-grey
+
+.btn
+    border: none
+    font-family: inherit
+    font-size: inherit
+    color: inherit
+    background: none
+    cursor: pointer
+    padding: 15px 40px
+    display: inline-block
+    margin: 0px 10px
+    margin-bottom: 15px
+    text-transform: uppercase
+    letter-spacing: 1px
+    font-weight: 700
+    outline: none
+    position: relative
+    -webkit-transition: all $animation
+    -moz-transition: all $animation
+    transition: all $animation
+
+.btn-2
+    background: #cb4e4e
+    color: #fff
+    box-shadow: 0 6px #ab3c3c
+    border-radius: 5px
+    -webkit-transition: none
+    -moz-transition: none
+    transition: none
+
+.btn-2:hover
+    box-shadow: 0 4px #ab3c3c
+    top: 2px
+
+.btn-2:active
+    box-shadow: 0 0 #ab3c3c
+    top: 6px
